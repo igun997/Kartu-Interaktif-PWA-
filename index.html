@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>IBIO Scanner</title>
+
+  <!-- WEB META TAG -->
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="description" content="IBIO Scanner">
+
+  <!-- ICON -->
+  <link rel="icon" href="./favicon.png" type="image/png" sizes="16x16">
+
+  <!-- MANIFEST -->
+  <link rel="manifest" href="./manifest.json">
+
+  <!-- ADD TO HOMESCREEN SAFARI ON IOS -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Interactive Biografi">
+  <link rel="apple-touch-icon" href="./favicon.png">
+
+  <!-- ADD TO HOMESCREEN WINDOWS -->
+  <meta name="msapplicatoin-TileImage" content="./favicon.png">
+  <meta name="msapplicatoin-TileColor" content="#ff9800">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href="./css/normalize.css">
+
+</head>
+
+<body>
+
+  <div data-role="page" id="home">
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#home" class="ui-btn-active pages">Scanner</a></li>
+        <li><a href="#tentang" class="pages">Tentang Aplikasi</a></li>
+      </ul>
+    </div>
+    <div data-role="header" id='judul'>
+      <h1>Scanner</h1></div>
+    <div role="main" class="ui-content" id='konten'>
+      <button id="proses" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-camera">Scan Kartu Kamu </button>
+      <div class="ui-body ui-body-a ui-corner-all" id="cameras" hidden>
+        <video id='qrVid' style="width:100%;heigth:200px"></video>
+      </div>
+
+    </div>
+    <div data-role="footer">
+      <h4>Jangan Sekali Kali Meninggalkan Sejarah</h4>
+    </div>
+  </div>
+  <div data-role="page" id="tentang">
+    <div data-role="header">
+      <h1>Tentang Aplikasi</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <div class="ui-body ui-body-a ui-corner-all">
+        <p>Orang yang melupakan sejarah sama saja seperti "Kacang Lupa Pada Kulitnya" maka dari itu kami membuat sebuah aplikasi yang mungkin membantu untuk adek-adek sekalian, semoga dengan adanya aplikasi ini adek ade bisa dengan leluasa mengingat keindahan
+          zaman dulu</p>
+        <a href="#home" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back">Kembali</a>
+      </div>
+    </div>
+    <div data-role="footer">
+      <h4>Jangan Sekali Kali Meninggalkan Sejarah</h4>
+    </div>
+  </div>
+  <div data-role="dialog" id="dialog_onsuccess">
+    <div data-role="header">
+      <h1 class='judul'>{{Loading}}</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <div class="ui-body ui-body-a ui-corner-all">
+        <img style="width:100%;heigth:200px" class='foto' src="" alt="">
+      </div>
+      <div class="ui-body ui-body-a ui-corner-all">
+        <video  style="width:100%;heigth:200px" controls>
+          <source class='video' src="somevideo.mp4" type="video/mp4">
+          I'm sorry; your browser doesn't support HTML5 video in WebM with VP8/VP9 or MP4 with H.264.
+        </video>
+      </div>
+      <div class="ui-body ui-body-a ui-corner-all">
+        <p><b>Nama Tokoh</b></p>
+        <p class='nama'>{{data}}</p>
+        <p><b>Tempat lahir</b></p>
+        <p class='tempat_lahir'>{{data}}</p>
+        <p><b>Tanggal Lahir</b></p>
+        <p class='tanggal_lahir'>{{data}}</p>
+        <p><b>Tanggal Wafat</b></p>
+        <p class='tanggal_wafat'>{{data}}</p>
+      </div>
+      <a href="#home" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back">Kembali</a>
+    </div>
+    <div data-role="footer">
+      <h4>Jangan Sekali Kali Meninggalkan Sejarah</h4>
+    </div>
+  </div>
+  <div data-role="dialog" id="dialog_onerror">
+    <div data-role="header">
+      <h1 class='judul'>{{Loading}}</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <div class="ui-body ui-body-a ui-corner-all">
+        <p>Sepertinya Kartu Belum terdaftar</p>
+      </div>
+      <a href="#home" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back">Kembali</a>
+    </div>
+    <div data-role="footer">
+      <h4>Jangan Sekali Kali Meninggalkan Sejarah</h4>
+    </div>
+  </div>
+
+
+
+  <script src="./js/jquery-1.11.1.min.js"></script>
+  <script src="./css/jquery.mobile-1.4.5.min.js"></script>
+  <script src="./js/instanscan.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').then(function(registration) {
+        // Registration Success
+        console.log('[serviceWorker]: registration successful with scope: ', registration.scope);
+      }).catch(function(err) {
+        // Registration failed :(
+        console.log('[serviceWorker] registration failed', err);
+      });
+    }
+  </script>
+</body>
+
+</html>
