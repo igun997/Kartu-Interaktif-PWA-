@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
   <title>IBIO Scanner</title>
@@ -38,6 +38,7 @@
     <div data-role="navbar">
       <ul>
         <li><a href="#home" class="ui-btn-active pages">Scanner</a></li>
+        <li><a href="#kartu" class="pages" id="kartuNav">Deck Kartu</a></li>
         <li><a href="#tentang" class="pages">Tentang Aplikasi</a></li>
       </ul>
     </div>
@@ -69,6 +70,38 @@
       <h4>Jangan Sekali Kali Meninggalkan Sejarah</h4>
     </div>
   </div>
+  <div data-role="page" id="kartu">
+    <div data-role="header">
+      <h1>Deck Kartu</h1>
+    </div>
+    <div role="main" class="ui-content deckKonten">
+      <div class="ui-body ui-body-a ui-corner-all">
+        <ul data-role="listview" data-autodividers="true" data-filter="true" data-inset="true" class="deck">
+
+        </ul>
+      </div>
+      <a href="#home" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back">Kembali</a>
+    </div>
+    <div data-role="footer">
+      <h4>Jangan Sekali Kali Meninggalkan Sejarah</h4>
+    </div>
+  </div>
+  <div data-role="page" id="hasilkan">
+    <div data-role="header">
+      <h1>Menghasilkan Kartu</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <div class="ui-body ui-body-a ui-corner-all kontenHasil">
+        <center><img class='fotoKartu' style="width:auto;heigth:200px" src=""></center>
+
+      </div>
+      <button type="button"  class="saveImages ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-cloud">Simpan</button>
+      <a href="#home" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back">Kembali</a>
+    </div>
+    <div data-role="footer">
+      <h4>Jangan Sekali Kali Meninggalkan Sejarah</h4>
+    </div>
+  </div>
   <div data-role="dialog" id="dialog_onsuccess">
     <div data-role="header">
       <h1 class='judul'>{{Loading}}</h1>
@@ -78,7 +111,7 @@
         <img style="width:100%;heigth:200px" class='foto' src="" alt="">
       </div>
       <div class="ui-body ui-body-a ui-corner-all">
-        <video  style="width:100%;heigth:200px" class="video" src="" controls>
+        <video style="width:100%;heigth:200px" class="video" src="" controls>
         </video>
       </div>
       <div class="ui-body ui-body-a ui-corner-all">
@@ -119,6 +152,7 @@
   <script src="./js/jquery-1.11.1.min.js"></script>
   <script src="./css/jquery.mobile-1.4.5.min.js"></script>
   <script src="./js/instanscan.js"></script>
+  <script src="./js/download.js"></script>
   <script src="./js/main.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
