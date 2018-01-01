@@ -39,6 +39,7 @@
       <ul>
         <li><a href="#home" class="ui-btn-active pages">Scanner</a></li>
         <li><a href="#kartu" class="pages" id="kartuNav">Deck Kartu</a></li>
+        <li><a href="#camera" id="cameraNav" class="pages">Detektor Foto</a></li>
         <li><a href="#tentang" class="pages">Tentang Aplikasi</a></li>
       </ul>
     </div>
@@ -70,6 +71,24 @@
       <h4>Jangan Sekali Kali Meninggalkan Sejarah</h4>
     </div>
   </div>
+  <div data-role="page" id="camera">
+    <div data-role="header">
+      <h1>Detektor Foto</h1>
+    </div>
+    <div role="main" class="ui-content deckKonten">
+      <div class="ui-body ui-body-a ui-corner-all">
+        <center><div id="camera_shot"></div></center>
+      </div>
+      <div class="ui-body ui-body-a ui-corner-all" id="kontenCam" hidden="true">
+        <center><img style="width:100%;heigth:200px" class="fotoSnap" src="" alt=""></center>
+      </div>
+      <button type="button" id="snapCamera" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-camera">Snap</button>
+      <a href="#home" id="resetCamera" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back">Kembali</a>
+    </div>
+    <div data-role="footer">
+      <h4>Jangan Sekali Kali Meninggalkan Sejarah</h4>
+    </div>
+  </div>
   <div data-role="page" id="kartu">
     <div data-role="header">
       <h1>Deck Kartu</h1>
@@ -92,10 +111,10 @@
     </div>
     <div role="main" class="ui-content">
       <div class="ui-body ui-body-a ui-corner-all kontenHasil">
-        <center><img class='fotoKartu' style="width:auto;heigth:200px" src=""></center>
+        <center><img class='fotoKartu' style="width:100%;heigth:200px" src=""></center>
 
       </div>
-      <button type="button"  class="saveImages ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-cloud">Simpan</button>
+      <button type="button" class="saveImages ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-cloud">Simpan</button>
       <a href="#home" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back">Kembali</a>
     </div>
     <div data-role="footer">
@@ -153,6 +172,7 @@
   <script src="./css/jquery.mobile-1.4.5.min.js"></script>
   <script src="./js/instanscan.js"></script>
   <script src="./js/download.js"></script>
+  <script src="./js/webcam.js"></script>
   <script src="./js/main.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
