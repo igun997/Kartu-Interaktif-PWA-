@@ -1,5 +1,25 @@
-$(document).ready(function() {
+var deferredPrompt;
 
+window.addEventListener('beforeinstallprompt', function(e) {
+  // beforeinstallprompt Event fired
+
+  // e.userChoice will return a Promise.
+  // For more details read: https://developers.google.com/web/fundamentals/getting-started/primers/promises
+  e.userChoice.then(function(choiceResult) {
+
+    console.log(choiceResult.outcome);
+
+    if(choiceResult.outcome == 'dismissed') {
+      console.log('User cancelled home screen install');
+    }
+    else {
+      console.log('User added to home screen');
+    }
+  });
+});
+
+
+$(document).ready(function() {
   var data = []
   $("#proses").on("click",function(){
     $("#cameras").removeAttr("hidden",false);
@@ -16,7 +36,7 @@ $(document).ready(function() {
     });
     Instascan.Camera.getCameras().then(function(cameras) {
       if(cameras.length > 0){
-        scanner.start(cameras[1]);
+        scanner.start(cameras[0]);
       }else{
         scanner.start(cameras[0]);
       }
@@ -57,6 +77,7 @@ $(document).ready(function() {
       modal.find(".tempat_lahir").html(data.data.tempat_lahir);
       modal.find(".tanggal_lahir").html(data.data.tanggal_lahir);
       modal.find(".tanggal_wafat").html(data.data.tanggal_wafat);
+      modal.find(".deskripsi").html(data.data.tentang);
       modal.find(".video").attr("src", data.data.video);
       modal.find(".foto").attr("src", data.data.foto);
       $.mobile.changePage("#dialog_onsuccess", {
